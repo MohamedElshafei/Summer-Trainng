@@ -1,0 +1,266 @@
+quiestion 3 :-
+1:- undefined
+2:- not a number , number ,if(isNaN(inputValue) == true)
+3:- executes all operations on a single thread, but using a few smart data structures, it gives us the illusion of multi-threading.
+4:-  allows you to implement multiple methods within the same class that use the same name but a different set of parameters.
+
+question 4 :-
+1:- 
+   function sumobjectvalues(obj) {
+var sum =0 ;
+for (var a in obj )
+if( typeof (obj[a])==="number"){
+sum+=obj[a] ;
+}
+console.log(sum) ;
+    }
+    let salaries = {
+  John: 100,
+  Ann: 160,
+  Pete: 130,
+  test : "hi" 
+}
+sumobjectvalues(salaries) ;
+
+2:-
+doSomething();
+doSomethingElse();
+doSomethingUsefulThisTime();
+setTimeout(doSomething, 10);
+setTimeout(doSomethingElse, 10);
+setTimeout(doSomethingUsefulThisTime, 10);
+
+3:-
+function changetime(time) {
+    var newtime ;
+    if (time<=12&&time>0){
+newtime=time+12 ;
+
+    }
+    else
+    {
+        console.log("invalid input");
+
+    }
+    return newtime ;
+    }
+    var hours =Number(prompt("enter the hour you want to convert"))
+    var min =Number(prompt("enter the mins"))
+let converted = changetime(hours) ;
+console.log("the new time is "+converted+":"+min) ;
+ 
+4:-
+   function datediff(a,b) {;
+    one= Date.parse((a)) ;
+   var minutes1 = 1000 * 60;
+var hours1 = minutes1 * 60;
+var days1 = hours1 * 24;
+var date1 = Math.round(one / days1);
+var two= Date.parse((b)) ;
+   var minutes2 = 1000 * 60;
+var hours2 = minutes2 * 60;
+var days2 = hours2 * 24;
+var date2 = Math.round(two / days2);
+var newdate ;
+if (date1>date2){
+newdate=date1-date2 ; 
+console.log(newdate);
+}
+else if  (date1<date2){
+
+    newdate=date2-date1 ;   
+    console.log(newdate);
+}
+else if  (date1===date2){
+
+newdate=0 ;   
+console.log(newdate);
+}
+
+   }
+   var x=prompt("enter the first date in the format 2019-01-01 ")
+var y=prompt("enter the second date in the format 2019-01-01 ")
+datediff(x,y) ;
+
+5:-
+
+var arr=[] ;
+arr.push(10) ;
+arr.push(5) ;
+arr.push(20) ;
+arr.push(12) ;
+arr.push(50) ;
+var x=0
+var index ;
+for (let i=0 ; i<=arr.length;i++){
+if (arr[i]>x)
+{
+    x=arr[i] ;
+    index=i ;
+}
+}
+console.log("the max value is"+x+"and its index is "+index) ;
+
+6:-
+class Shapes{
+    shapeColor : String;
+    shapeFilled : Boolean;
+
+    constructor (shapeColor : String , shapeFilled : Boolean ){
+        this.shapeColor=shapeColor;
+        this.shapeFilled=shapeFilled;
+    }
+
+    public get getColor() : String{
+         return "The Color of the shape is " + this.shapeColor ;
+    }
+    public set setColor(shapeColor : String){
+        this.shapeColor=shapeColor;
+    }
+
+    public get getFilled() : Boolean{
+        return this.getFilled;
+    }
+    public set setFilled(shapeFilled : Boolean){
+        this.shapeFilled = shapeFilled;
+    }
+    public getAll (){
+        return "The Color is " + this.shapeColor + " And " + this.shapeFilled + " for Filling.";
+    }
+}
+
+class Circles extends Shapes{
+    cirRadius : number;
+    constructor(shapeColor : String , shapeFilled : Boolean , cirRadius : number){
+        super(shapeColor , shapeFilled);
+        this.cirRadius=cirRadius;
+    }
+
+    public get getRadius(): number{
+        return this.cirRadius;
+    }
+    public set setRadius(cirRadius : number){
+        this.cirRadius=cirRadius;
+    }
+    public get getAreaCir(): number{
+        var cirArea = 3.14 * this.cirRadius * this.cirRadius;
+        return cirArea;
+    }
+    public get getPeriCir(): number{
+        var cirPeri = 2 * 3.14 * this.cirRadius;
+        return cirPeri;
+    }
+    public getAllCir (){
+        return "The Circle Color is " + this.shapeColor + " , " + this.shapeFilled + " for Filling , And the Radius is " 
+        + this.cirRadius ;
+    }
+
+}
+
+class Rectangle extends Shapes{
+    recWidth:number;
+    recLength:number;
+
+    constructor(shapeColor:String , shapeFilled:Boolean , recWidth:number , recLength:number){
+    super(shapeColor , shapeFilled);
+    this.recLength=recLength;
+    this.recWidth=recWidth;
+    }
+    public get getWidth(): number{
+    return this.recWidth;
+    }
+    public set setWidth(recWidth : number){
+        this.recWidth=recWidth;
+    }
+    public get getLength(): number{
+        return this.recLength;
+        }
+    public set setLength(recLength : number){
+            this.recWidth=recLength;
+        }
+    public get getAreaRec(): number {
+        var recArea = this.recLength * this.recWidth;
+        return recArea;
+    }
+    public get getPeriRec(): number {
+        var recPeri = 2 * (this.recLength + this.recWidth);
+        return recPeri;
+    }
+    public getAllRec(){
+        return "The Rectangle Color is " + this.shapeColor + " , " + this.shapeFilled + " for Filling , It's width is " + this.recWidth + " And it's length is "
+        + this.recLength ;
+    }
+}
+class Square extends Rectangle{
+    sqrSides:number;
+
+    constructor(shapeColor:String , shapeFilled:Boolean , recWidth:number , recLength:number , sqrSides:number ){
+        super(shapeColor , shapeFilled , recWidth , recLength);
+        this.sqrSides=sqrSides;
+    }
+    public get getSides(): number{
+        return this.sqrSides;
+    }
+    public set setSides(sqrSides : number){
+        this.sqrSides=sqrSides;
+    }
+    public setWidthSqr(sqrSides : number){
+        this.recWidth=this.recWidth;
+    }
+    public setLengthSqr(sqrSides : number){
+        this.recLength=this.recLength;
+    }
+    public getAllSqr(){
+        return "The Square Color is " + this.shapeColor + " , " + this.shapeFilled + " for Filling , It's width is " + this.recWidth + " , it's length is "
+        + this.recLength + " ,And it's Sides are " + this.sqrSides;
+    }
+
+}
+
+question 5 :-
+1:-
+function myobject(name,message)
+{
+name=this.name ;
+message=this.name;
+function getname (){
+
+    return name.toString() ;
+}
+function getmessage (){
+
+return message.toString() ;
+}
+
+}
+2:-
+3
+1
+then 
+2
+4
+5
+
+
+bouns question 
+1:-
+function add(x) {
+    return function(y) {
+        return x + y;
+    };
+}
+var a = add(2)(3)
+console.log(a) ;
+
+
+2:-
+const arr = [{ id: 1, username: 'fred' }, { id: 2, username: 'bill' }, { id: 3, username: 'ted' }];
+
+function find(arr, name) {
+  const { length } = arr;
+  
+  const found = arr.some(el => el.username === john);
+ return found ;
+}
+
+console.log(find(arr, 'john'));
